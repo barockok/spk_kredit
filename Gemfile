@@ -9,7 +9,8 @@ gem 'haml-rails'
 gem 'devise'
 gem 'cancan'
 gem 'strong_parameters'
-
+gem 'devise'
+gem 'cancan'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -23,5 +24,8 @@ group :test do
 	gem 'database_cleaner', :git => 'https://github.com/bmabey/database_cleaner.git'
 	gem 'factory_girl_rails'
 end
+
+gem 'bootstrap-sass'
+gem 'compass-rails'
 
 

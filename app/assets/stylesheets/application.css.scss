@@ -1,0 +1,155 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bootstrap
+ *= require_self
+
+ */
+@import "bootstrap/mixins";
+@import "compass/css3/font-face";
+$fertigoPath: "/assets/fonts/FertigoPro.ttf";
+@include font-face(
+    'Fertigo',
+    font-files("#{$fertigoPath}", truetype),
+    normal,
+    normal);
+.fertigoFont{
+	font-family : Fertigo
+}
+// --------------------------- Misc ---------------------------
+.form-bottom-free{
+	margin-bottom: 0px;
+}
+.row-free-heigh [class*="span"]{
+	min-height: 0px !important;
+}
+.no-bold{
+	font-weight:normal !important;
+}
+// --------------------------- Misc ---------------------------
+
+
+.container {
+	width: 750px;
+}
+
+.logo-top-set{
+	width: 280px;			
+	margin: 0 auto;
+	.icon {
+		width: 70px;
+		.inner{
+			height: 97px;
+			background-image: url(/assets/master-icon-150.png);
+			background-repeat: no-repeat;
+			background-position:center center ;
+			background-size: cover;
+		}
+	}
+	.text{
+		width: 200px;
+		margin-left: 10px !important;
+		color: #38215e;
+		h3{
+			@extend .fertigoFont;
+			padding-top: 10px;
+			line-height: 30px;
+			font-size: 60px;
+			letter-spacing : -3px;
+			// font-weight: normal;
+			small{
+				color: #38215e;
+				font-size: 40%;
+			}
+		}
+	}
+}
+#dashboard_nav{
+	margin-top: 20px;
+	>.row-fluid .menu {
+		width: 410px;
+		.navbar-inner{
+			padding:0px;
+			background:none;
+			border:none;
+			@include box-shadow(none);
+			> ul > li  > a{
+				position: relative;
+			}
+			> ul > li  > a:after{
+				content: '';
+				margin-left:20px;
+				border-right:1px solid lighten(#38215e, 50%);
+			}
+			> ul > li:last-child  > a:after{
+				content: '';
+				margin-left:0px;
+				border-right:none;
+			}
+		}
+	}
+	.logo-top-set{
+		width: 310px;
+		.icon {
+			width: 35px;
+			.inner{
+				height: 47px;
+				background-image: url(/assets/master-icon-150.png);
+				background-repeat: no-repeat;
+				background-position:center center ;
+				background-size: cover;
+			}
+		}		
+		.text{
+			width: 250px;
+			margin-left: 10px !important;
+			color: #38215e;
+			h3{
+				@extend .fertigoFont;
+				padding-top: 0px;
+				line-height: 18px;
+				font-size: 25px;
+				letter-spacing : -3px;
+				// font-weight: normal;
+				span {
+					color : lighten(#38215e, 60%) ;
+				}
+				small{
+					color: #38215e;
+					font-size: 40%;
+				}
+			}
+		}		
+	}
+}
+#userSession{
+	// background: #1c1828;
+	#component-main {
+		margin-top: 30px;
+
+		.userloginForm{
+			width: 450px;
+			margin: 0 auto;
+			// background-image: -webkit-gradient(linear,0% 0,0% 100%,color-stop(0%,#2c263f),color-stop(100%,rgba(44,38,63,0.4)));
+			// border: 1px solid #373553;
+			// color: #bfb8e5;
+			@include border-radius(5px);
+			form {
+				padding: 15px;
+			}
+			.inner {
+				padding: 20px;
+			}
+		}
+		.userRegForm{
+			@extend .userloginForm
+		}
+	}
+}

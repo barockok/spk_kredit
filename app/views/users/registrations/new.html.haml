@@ -1,0 +1,21 @@
+-body_id 'userSession'
+=render 'layouts/logo_set'
+%h3.text-center.no-bold Sign Up
+.userRegForm
+	.inner
+		= form_for(resource, :as => resource_name, :url => registration_path(resource_name) , :html => {autocomplete: "off"}) do |f|
+			=f.label :full_name
+			=f.text_field :full_name, :class => 'span12'
+			=f.label :email
+			=f.email_field :email, :class => 'span12'
+			=f.label :password
+			=f.password_field :password, :class => 'span12'
+			=f.label :password_confirmation
+			=f.password_field :password_confirmation, :class => 'span12'
+			%hr
+			.row-fluid
+				.span7
+					= link_to "Have account? sign in here.", new_session_path(resource_name)
+				.span5
+					=f.button 'Sign Up', :class => 'btn pull-right'
+%br

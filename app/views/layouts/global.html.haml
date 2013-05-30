@@ -1,0 +1,24 @@
+!!! HTML
+%html
+	%head
+		%title Torakku 
+		=yield :head_start
+		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+		=stylesheet_link_tag :application, :media => :all
+		/ =stylesheet_link_tag :print, :media => (params[:print_view] == '1' ? :all : :print)
+		%link{rel: 'icon' , href: asset_path('favico.png'), type: "image/png"}
+		=csrf_meta_tags
+		=yield :head_end
+
+	%body{:class => "#{params[:controller].gsub(/\W/, '-')} #{params[:action]}" , :id => @_body_id}
+		.container.root-container
+			.inner
+				.row-fluid
+					#component-main.span12
+						-if current_user.blank? == false or ((current_user.blank? == false or current_user.blank? == true) and block_off?(:dashboard_navigation) )
+							=render 'layouts/dashboard_nav'
+						=yield
+		=content_for(:bottom_area)
+		#bottom-js{:style => 'display:none'}
+			=javascript_include_tag :application
+			=yield :bottom_js
